@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.timetracker.timetracker.database.Category;
+import com.timetracker.timetracker.repositories.CategoryRepository;
 
 @Service
 public class CategoryService {
@@ -32,3 +33,5 @@ public class CategoryService {
       existingCategory.setName(category.getName());
       return categoryRepository.save(existingCategory);
    }
+}
+

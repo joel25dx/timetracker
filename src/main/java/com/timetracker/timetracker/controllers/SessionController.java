@@ -20,12 +20,6 @@ import com.timetracker.timetracker.services.SessionService;
 @CrossOrigin(origins = "*")
 public class SessionController {
 
-    private SessionService sessionService;
-
-    public SessionController(SessionService sessionService) {
-        this.sessionService = sessionService;
-    }
-
     @Autowired
     private SessionService sessionService;
 
@@ -57,7 +51,7 @@ public class SessionController {
 
     @GetMapping("/active")
     public boolean hasActiveSession() {
-        return sessionService.hasActiveSession();
+        return sessionService.activeSession();
     }
 
 }

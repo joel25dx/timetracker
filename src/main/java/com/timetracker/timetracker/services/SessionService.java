@@ -4,8 +4,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.boot.web.server.autoconfigure.ServerProperties.Reactive.Session;
 import org.springframework.stereotype.Service;
+
+import com.timetracker.timetracker.database.Session;
+import com.timetracker.timetracker.repositories.SessionRepository;
 
 @Service
 public class SessionService {
@@ -57,3 +59,4 @@ public class SessionService {
         return sessionRepository.save(entry);
 
     }
+}
