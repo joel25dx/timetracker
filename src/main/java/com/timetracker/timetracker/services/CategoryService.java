@@ -1,6 +1,10 @@
 package com.timetracker.timetracker.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+
+import com.timetracker.timetracker.database.Category;
 
 @Service
 public class CategoryService {
