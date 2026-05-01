@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.timetracker.timetracker.database.Session;
+import com.timetracker.timetracker.services.SessionService;
+
 @RestController
-@RequestMapping("/sessions")
+@RequestMapping("/session")
 @CrossOrigin(origins = "*")
 public class SessionController {
 
@@ -27,12 +30,12 @@ public class SessionController {
     private SessionService sessionService;
 
     @GetMapping()
-    public List<Sessions> getAllSessions() {
+    public List<Session> getAllSessions() {
         return sessionService.getAllSessions();
     }
 
     @PostMapping("/create")
-    public Sessions saveSession(@RequestBody Sessions session) {
+    public Session saveSession(@RequestBody Session session) {
 
         return sessionService.createSession(session);
     }
@@ -43,18 +46,18 @@ public class SessionController {
     }
 
     @PostMapping("/start")
-    public Sessions startTimeEntry(@RequestBody String categoryId) {
-        return sessionService.startTimeEntry(categoryId);
+    public Session startSession(@RequestBody String categoryId) {
+        return sessionService.startSession(categoryId);
     }
 
     @PostMapping("/stop/{id}")
-    public Sessions stopTimeEntry(@PathVariable String id) {
-        return sessionService.stopTimeEntry(id);
+    public Session stopSession(@PathVariable String id) {
+        return sessionService.stopSession(id);
     }
 
     @GetMapping("/active")
-    public boolean hasActiveTimeEntry() {
-        return sessionService.activeSession();
+    public boolean hasActiveSession() {
+        return sessionService.hasActiveSession();
     }
 
 }
