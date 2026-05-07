@@ -23,6 +23,17 @@ public class SessionService {
         return sessionRepository.insert(session);
     }
 
+    public Session updateSession(String id, Session updatedData) {
+        Session session = sessionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Session not found with id: " + id));
+        // Update category details
+        session.setCategoryId(updatedData.getCategoryId());
+        session.setCategoryName(updatedData.getCategoryName());
+
+        // save and return
+        return sessionRepository.save(session);
+    }
+
     public List<Session> getAllSessions() {
         return sessionRepository.findAll();
     }
